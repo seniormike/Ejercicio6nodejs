@@ -7,6 +7,8 @@ const url = require("url");
 let urlProveedores = "https://gist.githubusercontent.com/josejbocanegra/d3b26f97573a823a9d0df4ec68fef45f/raw/66440575649e007a9770bcd480badcbbc6a41ba7/proveedores.json"
 let urlClientes = "https://gist.githubusercontent.com/josejbocanegra/986182ce2dd3e6246adcf960f9cda061/raw/f013c156f37c34117c0d4ba9779b15d427fb8dcd/clientes.json"
 
+
+
 //Referencias de mapeo
 let proveedores;
 let clientes;
@@ -59,14 +61,14 @@ let getProveedores = (callback) => {
 }
 // Crea el server
 http.createServer((req, res) => {
-    res.writeHead(200, {"Content-Type": "text/html"})
+    res.writeHead(200, {"Content-Type": "text/html"});
     if(url.parse(req.url, true).path === "/api/proveedores"){
         getProveedores((data) => {
-            res.end(data.toString())
-        })
+            res.end(data.toString());
+        });
     }else if(url.parse(req.url, true).path === "/api/clientes"){
         getClientes((data) => {
-            res.end(data.toString())
-        })
+            res.end(data.toString());
+        });
     }
-}).listen(8081)
+}).listen(8081);
